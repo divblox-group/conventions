@@ -48,14 +48,14 @@ SQL;
 
 Incorrect:
 $SqlStr =
-    "SELECT ".$SelectStr.
+    "SELECT {$SelectStr}"
     "FROM SalesEvent se ".
     "JOIN SalesEventAdditionalInfo seai ON se.Id=seai.SalesEvent ".
     "JOIN SalesEventQuote seq ON se.Id=seq.SalesEvent ".
-    "JOIN ".$CommissionsDbStr.".Tenant t ON t.id=se.TenantId ".
+    "JOIN {$CommissionsDbStr}.Tenant t ON t.id=se.TenantId ".
     "WHERE seai.SaleStatus='Mobility Complete' ".
     "AND seq.QuoteStatus='Signed' ".
-    "AND se.SalesEventUniqueId='".$SalesEventStr."';";
+    "AND se.SalesEventUniqueId='{$SalesEventStr}';";
 ```
 
 ### Function Naming Code Conventions
